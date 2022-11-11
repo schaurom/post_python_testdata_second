@@ -14,6 +14,7 @@ def create_workbook(workbook_name, sheet_names):
         sheet = workbook.create_sheet(sheet_name)
         # create testdata for this sheet and fill it into a dataframe
         data = pandas.DataFrame(create_testdata())
+        print(data)
         # fill dataframe into the sheet
         for row in dataframe_to_rows(data, index=False):
             sheet.append(row)
@@ -36,6 +37,7 @@ def create_testdata():
             'Bank': fake.iban(),
             'Eintritt': fake.date_between().strftime('%d.%m.%Y')
         })
+    #print(data_list)
     return data_list
 
 
