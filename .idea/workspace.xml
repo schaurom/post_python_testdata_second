@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec4324f3-9a36-4abf-a686-6f0d21b0eee9" name="Changes" comment="print(data)">
+    <list default="true" id="ec4324f3-9a36-4abf-a686-6f0d21b0eee9" name="Changes" comment="Durchlaufzeit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create_excel_testdata_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_excel_testdata_files.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668209670165</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Durchlaufzeit">
+      <created>1668210351920</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668210351920</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,6 +93,7 @@
     <MESSAGE value="." />
     <MESSAGE value="Print DataFrame" />
     <MESSAGE value="print(data)" />
-    <option name="LAST_COMMIT_MESSAGE" value="print(data)" />
+    <MESSAGE value="Durchlaufzeit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Durchlaufzeit" />
   </component>
 </project>

@@ -25,7 +25,7 @@ def create_workbook(workbook_name, sheet_names):
 
 
 def create_testdata():
-    fake = Faker('de_AT')
+    fake = Faker('de_DE')
     data_list = []
     for num in range(200):
         data_list.append({
@@ -44,10 +44,10 @@ def create_testdata():
 
 if __name__ == '__main__':
     zeitanfang = time.process_time()
-    print(zeitanfang)
+    print(time.asctime())
     path_dir = r'C:\Users\schau\Desktop\Testdaten'
     create_workbook(os.sep.join([path_dir, 'Adressen.xlsx']), ['A'])
     #create_workbook(os.sep.join([path_dir, '1.xlsx']), ['A', 'B', 'C'])
     zeitende = time.process_time()
-    print(zeitende)
+    print(time.asctime())
     print('Durchlaufdauer: ', (zeitende-zeitanfang),'s')
