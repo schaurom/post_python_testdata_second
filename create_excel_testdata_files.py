@@ -1,5 +1,6 @@
 import pandas
 import os
+import time
 from faker import Faker
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
@@ -14,7 +15,7 @@ def create_workbook(workbook_name, sheet_names):
         sheet = workbook.create_sheet(sheet_name)
         # create testdata for this sheet and fill it into a dataframe
         data = pandas.DataFrame(create_testdata())
-        print(data)
+        #print(data)
         # fill dataframe into the sheet
         for row in dataframe_to_rows(data, index=False):
             sheet.append(row)
@@ -42,7 +43,11 @@ def create_testdata():
 
 
 if __name__ == '__main__':
+    zeitanfang = time.process_time()
+    print(zeitanfang)
     path_dir = r'C:\Users\schau\Desktop\Testdaten'
     create_workbook(os.sep.join([path_dir, 'Adressen.xlsx']), ['A'])
     #create_workbook(os.sep.join([path_dir, '1.xlsx']), ['A', 'B', 'C'])
-
+    zeitende = time.process_time()
+    print(zeitende)
+    print('Durchlaufdauer: ', (zeitende-zeitanfang),'s')
