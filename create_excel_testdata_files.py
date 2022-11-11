@@ -1,4 +1,5 @@
 import pandas
+import os
 from faker import Faker
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
@@ -22,7 +23,7 @@ def create_workbook(workbook_name, sheet_names):
 
 
 def create_testdata():
-    fake = Faker('de_DE')
+    fake = Faker('de_AT')
     data_list = []
     for num in range(200):
         data_list.append({
@@ -39,6 +40,7 @@ def create_testdata():
 
 
 if __name__ == '__main__':
-    create_workbook('daten/Adressen 1.xlsx', ['A', 'B', 'C'])
-    create_workbook('daten/Adressen 2.xlsx', ['D'])
-    create_workbook('daten/Adressen 3.xlsx', ['E', 'F', 'G'])
+    path_dir = r'C:\Users\schau\Desktop\Testdaten'
+    create_workbook(os.sep.join([path_dir, 'Adressen.xlsx']), ['A'])
+    #create_workbook(os.sep.join([path_dir, '1.xlsx']), ['A', 'B', 'C'])
+
