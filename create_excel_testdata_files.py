@@ -8,6 +8,7 @@ from openpyxl.workbook import Workbook
 
 
 def create_workbook(workbook_name, sheet_names):
+    print(time.asctime(), 'create_workbook Start')
     # write_only to not get a default 'Sheet' in the file
     workbook = Workbook(write_only=True)
     # iterate through sheet names
@@ -23,12 +24,13 @@ def create_workbook(workbook_name, sheet_names):
 
     # save the workbook with given name
     workbook.save(workbook_name)
-
+    print(time.asctime(), 'create_workbook Ende')
 
 def create_testdata():
+    print(time.asctime(), 'create_testdata Start')
     fake = Faker('de_AT')
     data_list = []
-    for num in range(200):
+    for num in range(10):
         data_list.append({
             'Name': fake.last_name(),
             'Vorname': fake.first_name(),
@@ -41,7 +43,7 @@ def create_testdata():
             'Bank': fake.iban(),
             'Eintritt': fake.date_between().strftime('%d.%m.%Y')
         })
-    #print(data_list)
+    print(time.asctime(), 'create_testdata Ende')
     return data_list
 
 
