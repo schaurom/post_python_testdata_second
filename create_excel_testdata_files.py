@@ -46,7 +46,9 @@ def create_testdata():
 
 
 def zufall():
-    return random.choice(['true', 'false'])
+    randWert = random.choice(['true', 'false'])
+    #print(randWert)
+    return randWert
 
 
 if __name__ == '__main__':
