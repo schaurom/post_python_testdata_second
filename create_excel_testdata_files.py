@@ -1,7 +1,7 @@
 import pandas
 import os
 import time
-import random
+#import random
 from faker import Faker
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
