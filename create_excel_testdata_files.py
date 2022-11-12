@@ -1,6 +1,7 @@
 import pandas
 import os
 import time
+import random
 from faker import Faker
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
@@ -31,6 +32,8 @@ def create_testdata():
         data_list.append({
             'Name': fake.last_name(),
             'Vorname': fake.first_name(),
+            'Zufall': zufall(),
+            'Titel': fake.prefix(),
             'Telefon': fake.phone_number(),
             'Strasse': fake.street_address(),
             'Postleitzahl': fake.postcode(),
@@ -40,6 +43,10 @@ def create_testdata():
         })
     #print(data_list)
     return data_list
+
+
+def zufall():
+    return random.choice(['true', 'false'])
 
 
 if __name__ == '__main__':
