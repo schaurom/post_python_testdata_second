@@ -1,7 +1,5 @@
 import pandas
 import os
-import time
-#import random
 from faker import Faker
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
@@ -26,29 +24,21 @@ def create_workbook(workbook_name, sheet_names):
 
 
 def create_testdata():
-    country = 'de_AT'
-    fake = Faker(country)
+    fake = Faker('de_AT')
     data_list = []
     for num in range(200):
         data_list.append({
             'Name': fake.last_name(),
             'Vorname': fake.first_name(),
-            #'Zufall': zufall(),
-            'Titel:': fake.prefix(),
             'Telefon': fake.phone_number(),
             'Strasse': fake.street_address(),
             'Postleitzahl': fake.postcode(),
             'Stadt': fake.city(),
             'Bank': fake.iban(),
-            'Eintritt': fake.date_between().strftime('%d.%m.%Y'),
+            'Eintritt': fake.date_between().strftime('%d.%m.%Y')
         })
-    # print(data_list)
+    #print(data_list)
     return data_list
-
-
-#def zufall():
-#    werte_rand = random.choice(('true', 'false'))
-#    return werte_rand
 
 
 if __name__ == '__main__':
