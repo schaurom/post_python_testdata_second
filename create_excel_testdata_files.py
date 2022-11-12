@@ -1,6 +1,7 @@
 import pandas
 import os
 import time
+import random
 from faker import Faker
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
@@ -15,7 +16,7 @@ def create_workbook(workbook_name, sheet_names):
         sheet = workbook.create_sheet(sheet_name)
         # create testdata for this sheet and fill it into a dataframe
         data = pandas.DataFrame(create_testdata())
-        #print(data)
+        # print(data)
         # fill dataframe into the sheet
         for row in dataframe_to_rows(data, index=False):
             sheet.append(row)
@@ -25,21 +26,29 @@ def create_workbook(workbook_name, sheet_names):
 
 
 def create_testdata():
-    fake = Faker('de_DE')
+    country = 'de_AT'
+    fake = Faker(country)
     data_list = []
     for num in range(200):
         data_list.append({
             'Name': fake.last_name(),
             'Vorname': fake.first_name(),
+            #'Zufall': zufall(),
+            'Titel:': fake.prefix(),
             'Telefon': fake.phone_number(),
             'Strasse': fake.street_address(),
             'Postleitzahl': fake.postcode(),
             'Stadt': fake.city(),
             'Bank': fake.iban(),
-            'Eintritt': fake.date_between().strftime('%d.%m.%Y')
+            'Eintritt': fake.date_between().strftime('%d.%m.%Y'),
         })
-    #print(data_list)
+    # print(data_list)
     return data_list
+
+
+#def zufall():
+#    werte_rand = random.choice(('true', 'false'))
+#    return werte_rand
 
 
 if __name__ == '__main__':
@@ -47,7 +56,7 @@ if __name__ == '__main__':
     print(time.asctime())
     path_dir = r'C:\Users\schau\Desktop\Testdaten'
     create_workbook(os.sep.join([path_dir, 'Adressen.xlsx']), ['A'])
-    #create_workbook(os.sep.join([path_dir, '1.xlsx']), ['A', 'B', 'C'])
+    # create_workbook(os.sep.join([path_dir, '1.xlsx']), ['A', 'B', 'C'])
     zeitende = time.process_time()
     print(time.asctime())
-    print('Durchlaufdauer: ', (zeitende-zeitanfang),'s')
+    print('Durchlaufdauer: ', (zeitende - zeitanfang), 's')
