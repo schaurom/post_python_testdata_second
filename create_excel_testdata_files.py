@@ -30,7 +30,7 @@ def create_testdata():
     print(time.asctime(), 'create_testdata Start')
     fake = Faker('de_AT')
     data_list = []
-    for num in range(10):
+    for num in range(200):
         data_list.append({
             'Name': fake.last_name(),
             'Vorname': fake.first_name(),
